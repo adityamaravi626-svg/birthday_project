@@ -7,7 +7,7 @@ from datetime import date
 # ============================================================
 # OPERATION BAHU
 # Birthday Edition
-# Phase 2: Birthday Portal + Navigation
+# Phase 3: Bahu's World
 # ============================================================
 
 
@@ -16,7 +16,7 @@ from datetime import date
 # ------------------------------------------------------------
 
 st.set_page_config(
-    page_title="Operation Bahu 🎂",
+    page_title="Operation Birthday 🎂",
     page_icon="🌸",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -31,7 +31,7 @@ BIRTHDAY = date(2026, 9, 26)
 
 
 # ------------------------------------------------------------
-# LOAD DATA
+# LOAD INTEREST DATA
 # ------------------------------------------------------------
 
 try:
@@ -47,20 +47,21 @@ except FileNotFoundError:
             "Classical Dance",
             "Painting",
             "Flowers",
-            "Food"
+            "Food",
+            "Music"
         ],
         "Interest_Score": [
             90,
             85,
             95,
-            100
+            100, 88
         ]
     })
 
 
-# ------------------------------------------------------------
-# SIDEBAR NAVIGATION
-# ------------------------------------------------------------
+# ============================================================
+# SIDEBAR
+# ============================================================
 
 st.sidebar.title("🎂 Operation Bahu")
 
@@ -91,16 +92,14 @@ st.sidebar.caption(
 
 
 # ============================================================
-# HOME PAGE
+# HOME
 # ============================================================
 
 if page == "🏠 Home":
 
-    st.title("🎂 Operation  Bahu")
+    st.title("🎂 Operation Bahu")
 
-    st.subheader(
-        "Birthday Edition"
-    )
+    st.subheader("Birthday Edition")
 
     st.write(
         "Welcome to the birthday portal of "
@@ -108,11 +107,6 @@ if page == "🏠 Home":
     )
 
     st.divider()
-
-
-    # --------------------------------------------------------
-    # Birthday Mission
-    # --------------------------------------------------------
 
     st.header("🎉 Birthday Mission")
 
@@ -139,13 +133,7 @@ if page == "🏠 Home":
             value="April 2026"
         )
 
-
     st.divider()
-
-
-    # --------------------------------------------------------
-    # Welcome Message
-    # --------------------------------------------------------
 
     st.header("🚀 Mission Brief")
 
@@ -156,24 +144,20 @@ if page == "🏠 Home":
         So instead of sending a simple
         "Happy Birthday" message,
 
-        I decided to build an entire
+        we decided to build an entire
         birthday portal. 😂
 
         Welcome to **Operation Bahu**.
         """
     )
 
-
-    # --------------------------------------------------------
-    # Countdown
-    # --------------------------------------------------------
+    st.divider()
 
     today = date.today()
 
     days_left = (
         BIRTHDAY - today
     ).days
-
 
     st.header("⏳ Birthday Countdown")
 
@@ -182,16 +166,6 @@ if page == "🏠 Home":
         st.metric(
             "Days Until Birthday",
             f"{days_left} days"
-        )
-
-        st.progress(
-            min(
-                1.0,
-                max(
-                    0.0,
-                    1 - days_left / 365
-                )
-            )
         )
 
     elif days_left == 0:
@@ -208,13 +182,7 @@ if page == "🏠 Home":
             "🎂 Happy Birthday, Bahu!"
         )
 
-
     st.divider()
-
-
-    # --------------------------------------------------------
-    # Quick Introduction
-    # --------------------------------------------------------
 
     st.header("✨ What awaits inside?")
 
@@ -222,51 +190,36 @@ if page == "🏠 Home":
 
     with col1:
 
-        st.write(
-            "🌸 **Bahu's little World**"
-        )
-
+        st.write("🌸 **Bahu's World**")
         st.write(
             "A little look at the things she loves."
         )
 
+        st.write("📸 **The Trio**")
         st.write(
-            "A collection of memories of our trio."
+            "A collection of memories from our trio."
         )
 
-        st.write(
-            "🏆 **Bahu Awards**"
-        )
-
+        st.write("🏆 **Bahu Awards**")
         st.write(
             "Some very official and definitely legitimate awards."
         )
 
-
     with col2:
 
-        st.write(
-            "🧠 **Bahu Quiz**"
-        )
-
+        st.write("🧠 **Bahu Quiz**")
         st.write(
             "Let's see how well I know her."
         )
 
-        st.write(
-            "🔮 **Birthday Machine**"
-        )
-
+        st.write("🔮 **Birthday Machine**")
         st.write(
             "A completely scientific birthday prediction. 😂"
         )
 
+        st.write("💌 **Final Message**")
         st.write(
-            "💌 **Final Message**"
-        )
-
-        st.write(
-            "A birthday message from me."
+            "A birthday message from Me."
         )
 
 
@@ -278,75 +231,52 @@ elif page == "🌸 Bahu's World":
 
     st.title("🌸 Bahu's World")
 
+    st.subheader(
+        "A little world built around the things she loves."
+    )
+
     st.write(
-        "A small collection of things that make "
-        "Shubhangi, well... Shubhangi."
+        "Based on what we actually know about Shubhangi, "
+        "these are the four things that define this section."
     )
 
     st.divider()
 
 
     # --------------------------------------------------------
-    # Interest Cards
+    # TOP INTEREST METRICS
     # --------------------------------------------------------
 
-    col1, col2 = st.columns(2)
+    st.header("✨ The Four Pillars of Bahu")
+
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
 
-        st.subheader("💃 Classical Dancer")
-
-        st.write(
-            "Grace, rhythm and creativity."
+        st.metric(
+            "💃 Dance",
+            "90%"
         )
-
-        st.progress(0.90)
-
-        st.caption(
-            "Dance energy: 90%"
-        )
-
-
-        st.subheader("🎨 Painting")
-
-        st.write(
-            "A creative side that deserves "
-            "its own gallery."
-        )
-
-        st.progress(0.85)
-
-        st.caption(
-            "Creative energy: 85%"
-        )
-
 
     with col2:
 
-        st.subheader("🌸 Flowers")
-
-        st.write(
-            "Because flowers somehow make "
-            "everything better. And it is way better when it is placed above your ear"
+        st.metric(
+            "🎨 Painting",
+            "85%"
         )
 
-        st.progress(0.95)
+    with col3:
 
-        st.caption(
-            "Flower appreciation: 95%"
+        st.metric(
+            "🌸 Flowers",
+            "95%"
         )
 
+    with col4:
 
-        st.subheader("🍕 Food")
-
-        st.write(
-            "This category requires no explanation. 😂"
-        )
-
-        st.progress(1.0)
-
-        st.caption(
-            "Foodie level: 100%"
+        st.metric(
+            "🍕 Foodie",
+            "100%"
         )
 
 
@@ -354,10 +284,96 @@ elif page == "🌸 Bahu's World":
 
 
     # --------------------------------------------------------
-    # Data Table
+    # INTEREST EXPLORER
     # --------------------------------------------------------
 
-    st.header("📊 Interest Profile")
+    st.header("🔍 Explore Bahu's Interests")
+
+    selected_interest = st.selectbox(
+        "Choose an interest",
+        [
+            "💃 Classical Dancer",
+            "🎨 Painting",
+            "🌸 Flowers",
+            "🍕 Food"
+        ]
+    )
+
+
+    interest_information = {
+
+        "💃 Classical Dance": {
+            "title": "💃 Classical Dance",
+            "score": 90,
+            "message": (
+                "Grace, rhythm and expression. "
+                "This is where art meets movement."
+            ),
+            "emoji": "💃"
+        },
+
+        "🎨 Painting": {
+            "title": "🎨 Painting",
+            "score": 85,
+            "message": (
+                "A creative side that turns a blank "
+                "canvas into something personal."
+            ),
+            "emoji": "🎨"
+        },
+
+        "🌸 Flowers": {
+            "title": "🌸 Flowers",
+            "score": 95,
+            "message": (
+                "Some things simply make a day "
+                "look a little more beautiful."
+            ),
+            "emoji": "🌸"
+        },
+
+        "🍕 Food": {
+            "title": "🍕 Food",
+            "score": 100,
+            "message": (
+                "Important research finding: "
+                "Bahu is a certified foodie. 😂"
+            ),
+            "emoji": "🍕"
+        }
+    }
+
+
+    selected = interest_information[
+        selected_interest
+    ]
+
+
+    st.subheader(
+        selected["title"]
+    )
+
+    st.write(
+        selected["message"]
+    )
+
+    st.progress(
+        selected["score"] / 100
+    )
+
+    st.caption(
+        f"Fun project score: {selected['score']}%"
+    )
+
+
+    st.divider()
+
+
+    # --------------------------------------------------------
+    # INTEREST DATA
+    # --------------------------------------------------------
+
+    st.header("📊 Bahu's Interest Profile")
 
     st.dataframe(
         bahu_df,
@@ -366,8 +382,24 @@ elif page == "🌸 Bahu's World":
     )
 
 
+    st.subheader(
+        "📈 Interest Comparison"
+    )
+
+    chart_data = bahu_df.set_index(
+        "Interest"
+    )
+
+    st.bar_chart(
+        chart_data
+    )
+
+
+    st.divider()
+
+
     # --------------------------------------------------------
-    # Strongest Interest
+    # STRONGEST INTEREST
     # --------------------------------------------------------
 
     strongest = bahu_df.loc[
@@ -375,9 +407,46 @@ elif page == "🌸 Bahu's World":
     ]
 
     st.success(
-        f"🏆 Current highest score: "
-        f"**{strongest['Interest']}** "
-        f"({strongest['Interest_Score']}%)"
+        f"🏆 According to our completely unofficial "
+        f"birthday analysis, **{strongest['Interest']}** "
+        f"currently holds the highest score at "
+        f"**{strongest['Interest_Score']}%**."
+    )
+
+
+    st.divider()
+
+
+    # --------------------------------------------------------
+    # BAHU FORMULA
+    # --------------------------------------------------------
+
+    st.header("🧪 The Totally Unofficial Bahu Formula")
+
+    st.write(
+        "After extensive research conducted by absolutely "
+        "unqualified scientists..."
+    )
+
+    formula_col1, formula_col2 = st.columns(2)
+
+    with formula_col1:
+
+        st.write("💃 Dance")
+        st.write("🎨 Painting")
+
+    with formula_col2:
+
+        st.write("🌸 Flowers")
+        st.write("🍕 Food")
+
+
+    st.info(
+        "🌸 + 🎨 + 💃 + 🍕 = **Bahu**"
+    )
+
+    st.caption(
+        "Disclaimer: This formula has absolutely no scientific basis. 😂"
     )
 
 
@@ -409,7 +478,7 @@ elif page == "📸 The Trio":
     st.subheader("👨‍💻 + 👨‍🦱 + 👩")
 
     st.write(
-        "**Eddie + Monojeet + Bahu**"
+        "**Eddie + Mohit + Bahu**"
     )
 
     st.write(
@@ -451,8 +520,12 @@ elif page == "🏆 Bahu Awards":
         "🍕": (
             "Professional Foodie Award",
             "For taking food very seriously."
+        ),
+
+        "🫂": (
+            "Official Trio Member Award",
+            "For becoming part of the gang since April 2026."
         )
-    
     }
 
     for icon, (title, description) in awards.items():
@@ -474,7 +547,7 @@ elif page == "🏆 Bahu Awards":
 
 elif page == "🧠 Bahu Quiz":
 
-    st.title("🧠 How Well Do I Know Bahu?")
+    st.title("🧠 How Well Do You Know Bahu?")
 
     st.write(
         "The official unofficial Bahu knowledge test."
@@ -513,7 +586,7 @@ elif page == "🔮 Birthday Machine":
 
 elif page == "💌 Final Message":
 
-    st.title("💌 A Message From Me")
+    st.title("💌 A Message From Us")
 
     st.write(
         "The final birthday message will appear here."
