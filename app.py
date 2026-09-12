@@ -135,7 +135,7 @@ if page == "🏠 Home":
     with col3:
 
         st.metric(
-            label="🫂 Trio Since",
+            label="🫂 Family Since",
             value="April 2026"
         )
 
