@@ -236,7 +236,7 @@ elif page == "🌸 Bahu's World":
     )
 
     st.write(
-        "Based on what we actually know about Shubhangi, "
+        "Based on what I actually know about Shubhangi, "
         "these are the four things that define this section."
     )
 
@@ -292,7 +292,7 @@ elif page == "🌸 Bahu's World":
     selected_interest = st.selectbox(
         "Choose an interest",
         [
-            "💃 Classical Dancer",
+            "💃 Classical Dance",
             "🎨 Painting",
             "🌸 Flowers",
             "🍕 Food"
@@ -453,38 +453,206 @@ elif page == "🌸 Bahu's World":
 # ============================================================
 # THE TRIO
 # ============================================================
-
-elif page == "📸 The Trio":
+ 
+ elif page == "📸 The Trio":
 
     st.title("📸 The Trio")
 
+    st.subheader(
+        "Three people. One Friendship. Beginning of Memories. 🫂"
+    )
     st.write(
-        "Three people. One friendship. "
-        "A questionable amount of nonsense. 😂"
+        "A little collection of moments from "
+        "April 2026 onwards."
     )
 
     st.divider()
 
+    st.header("👨‍💻 + 👨‍🦱 + 👩")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.metric(
+            "👨‍💻",
+            "aditya aka Eddie"
+        )
+
+    with col2:
+
+        st.metric(
+            "👨‍🦱",
+            "Monojeet aka Mohit"
+        )
+
+    with col3:
+
+        st.metric(
+            "👩",
+            "Shubhangi aka Bahu"
+        )
+
     st.info(
         """
-        📸 This section will contain our
-        photos and memories.
+        **The Unofficial Trio**
 
-        We'll build the complete photo gallery
-        in **Phase 4**.
+        Somewhere around April 2026, this trio
+        started collecting memories.
+
+        And apparently, I decided those memories
+        deserved their own webpage. 😂
         """
     )
 
-    st.subheader("👨‍💻 + 👨‍🦱 + 👩")
+    st.divider()
+
+
+    # --------------------------------------------------------
+    # PHOTO GALLERY
+    # --------------------------------------------------------
+
+    st.header("📸 Our Memories")
 
     st.write(
-        "**Eddie + Mohit + Bahu**"
+        "A few moments from the trio."
     )
 
-    st.write(
-        "Together since April 2026 🫂"
-    )
 
+    import os
+
+    image_folder = "Memories"
+
+    image_files = []
+
+
+    if os.path.exists(image_folder):
+
+        for filename in sorted(
+            os.listdir(image_folder)
+        ):
+
+            if filename.lower().endswith(
+                (".jpg", ".jpeg", ".png", ".webp")
+            ):
+
+                image_files.append(
+                    os.path.join(
+                        image_folder,
+                        filename
+                    )
+                )
+
+
+    if image_files:
+
+        # Display photos in groups of three
+
+        image_files=image_files[:9]
+        for i in range(
+            0,
+            len(image_files),
+            3
+        ):
+
+            row = image_files[i:i + 3]
+
+            columns = st.columns(3)
+
+            for column, image_path in zip(
+                columns,
+                row
+            ):
+
+                with column:
+
+                    st.image(
+                        image_path,
+                        use_container_width=True
+                    )
+
+                    filename = os.path.basename(
+                        image_path
+                    )
+                    photo_number = (
+                    image_files.index(image_path) + 1
+                )
+
+                    st.caption(
+                    f"📸 Memory #{Photo_number}"
+                )
+                  
+    else:
+
+        st.warning(
+            """
+            📸 No photos found yet.
+
+            Add your trio photos inside:
+
+            `images/`
+
+            Then refresh the app.
+            """
+        )
+
+
+    st.divider()
+
+
+
+    # --------------------------------------------------------
+    # TRIO STATISTICS
+    # --------------------------------------------------------
+
+    st.header("📊 Official Trio Statistics")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+
+        st.metric(
+            "👥 People",
+            "3"
+        )
+
+    with col2:
+
+        st.metric(
+            "📅 Together Since",
+            "April 2026"
+        )
+
+    with col3:
+
+        st.metric(
+            "🎂 Birthday",
+            "26 September"
+        )
+
+
+    st.divider()
+
+
+    # --------------------------------------------------------
+    # MEMORY MESSAGE
+    # --------------------------------------------------------
+
+    st.header("💭 One Simple Thought")
+
+    st.success(
+        """
+        Some memories don't need a huge photo album.
+
+        Sometimes a few pictures,
+        a few conversations,
+        and the right people
+        are enough.
+
+        Here's to the memories we've already made
+        and the ones still waiting for us. 🫂
+        """
+    )
 
 # ============================================================
 # BAHU AWARDS
