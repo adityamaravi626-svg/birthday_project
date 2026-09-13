@@ -579,7 +579,7 @@ elif page == "📸 The Trio":
                 )
 
                     st.caption(
-                    f"📸 Memory #{Photo_number}"
+                    f"📸 Memory #{photo_number}"
                 )
                   
     else:
