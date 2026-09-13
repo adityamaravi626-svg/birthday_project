@@ -454,7 +454,7 @@ elif page == "🌸 Bahu's World":
 # THE TRIO
 # ============================================================
  
- elif page == "📸 The Trio":
+elif page == "📸 The Trio":
 
     st.title("📸 The Trio")
 
