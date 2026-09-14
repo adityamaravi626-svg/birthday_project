@@ -885,7 +885,7 @@ if st.button(
 #=============================================================
 st.header("🏆 Your Result")
 
-        st.metric(
+st.metric(
             "Your Score",
             f"{score} / 5"
         )
