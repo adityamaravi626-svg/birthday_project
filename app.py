@@ -726,19 +726,7 @@ st.write(
     )
 
 st.divider()
-
-for icon, (title, description) in awards.items():
-
-   st.subheader(
-            f"{icon} {title}"
-        )
-
-  st.write(
-            description
-        )
-
- st.divider()
- st.balloons()
+st.balloons()
 
 # ============================================================
 # BAHU QUIZ
