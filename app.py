@@ -733,7 +733,7 @@ for icon, (title, description) in awards.items():
             f"{icon} {title}"
         )
 
-        st.write(
+    st.write(
             description
         )
 
