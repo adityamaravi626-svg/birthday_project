@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 from datetime import date
@@ -45,13 +46,14 @@ except FileNotFoundError:
             "Classical Dance",
             "Painting",
             "Flowers",
-            "Food"
+            "Food",
+            "Music"
         ],
         "Interest_Score": [
             90,
             85,
             95,
-            100
+            100, 88
         ]
     })
 
@@ -188,19 +190,16 @@ if page == "🏠 Home":
     with col1:
 
         st.write("🌸 **Bahu's World**")
-
         st.write(
-            "A little look at the things you loves."
+            "A little look at the things she loves."
         )
 
         st.write("📸 **The Trio**")
-
         st.write(
             "A collection of memories from our trio."
         )
 
         st.write("🏆 **Bahu Awards**")
-
         st.write(
             "Some very official and definitely legitimate awards."
         )
@@ -208,19 +207,16 @@ if page == "🏠 Home":
     with col2:
 
         st.write("🧠 **Bahu Quiz**")
-
         st.write(
             "Let's see how well I know you."
         )
 
         st.write("🔮 **Birthday Machine**")
-
         st.write(
             "A completely scientific birthday prediction. 😂"
         )
 
         st.write("💌 **Final Message**")
-
         st.write(
             "A birthday message from Me."
         )
@@ -244,6 +240,7 @@ elif page == "🌸 Bahu's World":
     )
 
     st.divider()
+
 
     # --------------------------------------------------------
     # TOP INTEREST METRICS
@@ -281,7 +278,9 @@ elif page == "🌸 Bahu's World":
             "100%"
         )
 
+
     st.divider()
+
 
     # --------------------------------------------------------
     # INTEREST EXPLORER
@@ -299,68 +298,55 @@ elif page == "🌸 Bahu's World":
         ]
     )
 
+
     interest_information = {
 
         "💃 Classical Dance": {
-
             "title": "💃 Classical Dance",
-
             "score": 90,
-
             "message": (
                 "Grace, rhythm and expression. "
                 "This is where art meets movement."
             ),
-
             "emoji": "💃"
         },
 
         "🎨 Painting": {
-
             "title": "🎨 Painting",
-
             "score": 85,
-
             "message": (
                 "A creative side that turns a blank "
                 "canvas into something personal."
             ),
-
             "emoji": "🎨"
         },
 
         "🌸 Flowers": {
-
             "title": "🌸 Flowers",
-
             "score": 95,
-
             "message": (
                 "Some things simply make a day "
                 "look a little more beautiful."
             ),
-
             "emoji": "🌸"
         },
 
         "🍕 Food": {
-
             "title": "🍕 Food",
-
             "score": 100,
-
             "message": (
                 "Important research finding: "
                 "Bahu is a certified foodie. 😂"
             ),
-
             "emoji": "🍕"
         }
     }
 
+
     selected = interest_information[
         selected_interest
     ]
+
 
     st.subheader(
         selected["title"]
@@ -378,7 +364,9 @@ elif page == "🌸 Bahu's World":
         f"Fun project score: {selected['score']}%"
     )
 
+
     st.divider()
+
 
     # --------------------------------------------------------
     # INTEREST DATA
@@ -392,6 +380,7 @@ elif page == "🌸 Bahu's World":
         hide_index=True
     )
 
+
     st.subheader(
         "📈 Interest Comparison"
     )
@@ -404,7 +393,9 @@ elif page == "🌸 Bahu's World":
         chart_data
     )
 
+
     st.divider()
+
 
     # --------------------------------------------------------
     # STRONGEST INTEREST
@@ -421,7 +412,9 @@ elif page == "🌸 Bahu's World":
         f"**{strongest['Interest_Score']}%**."
     )
 
+
     st.divider()
+
 
     # --------------------------------------------------------
     # BAHU FORMULA
@@ -439,14 +432,13 @@ elif page == "🌸 Bahu's World":
     with formula_col1:
 
         st.write("💃 Dance")
-
         st.write("🎨 Painting")
 
     with formula_col2:
 
         st.write("🌸 Flowers")
-
         st.write("🍕 Food")
+
 
     st.info(
         "🌸 + 🎨 + 💃 + 🍕 = **Bahu**"
@@ -460,7 +452,7 @@ elif page == "🌸 Bahu's World":
 # ============================================================
 # THE TRIO
 # ============================================================
-
+ 
 elif page == "📸 The Trio":
 
     st.title("📸 The Trio")
@@ -468,7 +460,6 @@ elif page == "📸 The Trio":
     st.subheader(
         "Three people. One Friendship. Beginning of Memories. 🫂"
     )
-
     st.write(
         "A little collection of moments from "
         "April 2026 onwards."
@@ -484,7 +475,7 @@ elif page == "📸 The Trio":
 
         st.metric(
             "👨‍💻",
-            "Aditya aka Eddie"
+            "aditya aka Eddie"
         )
 
     with col2:
@@ -515,6 +506,7 @@ elif page == "📸 The Trio":
 
     st.divider()
 
+
     # --------------------------------------------------------
     # PHOTO GALLERY
     # --------------------------------------------------------
@@ -525,11 +517,13 @@ elif page == "📸 The Trio":
         "A few moments from the trio."
     )
 
+
     import os
 
     image_folder = "Memories"
 
     image_files = []
+
 
     if os.path.exists(image_folder):
 
@@ -548,10 +542,12 @@ elif page == "📸 The Trio":
                     )
                 )
 
+
     if image_files:
 
-        image_files = image_files[:9]
+        # Display photos in groups of three
 
+        image_files=image_files[:9]
         for i in range(
             0,
             len(image_files),
@@ -562,11 +558,10 @@ elif page == "📸 The Trio":
 
             columns = st.columns(3)
 
-            for offset, (column, image_path) in enumerate(
-                zip(columns, row)
+            for column, image_path in zip(
+                columns,
+                row
             ):
-
-                photo_number = i + offset + 1
 
                 with column:
 
@@ -575,10 +570,17 @@ elif page == "📸 The Trio":
                         use_container_width=True
                     )
 
-                    st.caption(
-                        f"📸 Memory #{photo_number}"
+                    filename = os.path.basename(
+                        image_path
                     )
+                    photo_number = (
+                    image_files.index(image_path) + 1
+                )
 
+                    st.caption(
+                    f"📸 Memory #{photo_number}"
+                )
+                  
     else:
 
         st.warning(
@@ -587,13 +589,16 @@ elif page == "📸 The Trio":
 
             Add your trio photos inside:
 
-            `Memories/`
+            `images/`
 
             Then refresh the app.
             """
         )
 
+
     st.divider()
+
+
 
     # --------------------------------------------------------
     # TRIO STATISTICS
@@ -624,7 +629,9 @@ elif page == "📸 The Trio":
             "26 September"
         )
 
+
     st.divider()
+
 
     # --------------------------------------------------------
     # MEMORY MESSAGE
@@ -646,7 +653,6 @@ elif page == "📸 The Trio":
         """
     )
 
-
 # ============================================================
 # BAHU AWARDS
 # ============================================================
@@ -655,128 +661,51 @@ elif page == "🏆 Bahu Awards":
 
     st.title("🏆 The Bahu Awards")
 
-    st.subheader(
-        "The most prestigious unofficial awards of the year. 😂"
-    )
-
     st.write(
-        "No committee was involved. "
-        "No nominations were required. "
-        "The results are completely final. 🏆"
+        "Some highly prestigious awards "
+        "that definitely required no committee approval."
     )
 
     st.divider()
-
-    # --------------------------------------------------------
-    # AWARDS
-    # --------------------------------------------------------
 
     awards = {
+        "🌸": (
+            "Flower Enthusiast Award",
+            "For having a special appreciation for flowers."
+        ),
 
-        "🌸 Flower Enthusiast Award": {
+        "🎨": (
+            "Creative Artist Award",
+            "For the painting skills."
+        ),
 
-            "emoji": "🌸",
+        "💃": (
+            "Classical Dance Award",
+            "For possessing significantly more grace than the rest of us."
+        ),
 
-            "reason": (
-                "For having a special appreciation "
-                "for flowers."
-            )
-        },
+        "🍕": (
+            "Professional Foodie Award",
+            "For taking food very seriously."
+        ),
 
-        "🎨 Creative Artist Award": {
-
-            "emoji": "🎨",
-
-            "reason": (
-                "For her love of painting and creativity."
-            )
-        },
-
-        "💃 Classical Dance Award": {
-
-            "emoji": "💃",
-
-            "reason": (
-                "For bringing grace, rhythm and "
-                "expression through classical dance."
-            )
-        },
-
-        "🍕 Professional Foodie Award": {
-
-            "emoji": "🍕",
-
-            "reason": (
-                "For taking food very seriously. "
-                "A completely deserved award. 😂"
-            )
-        },
-
-        "🫂 Official Trio Member Award": {
-
-            "emoji": "🫂",
-
-            "reason": (
-                "For becoming part of the gang since April 2026."
-            )
-        }
+        "🫂": (
+            "Official Trio Member Award",
+            "For becoming part of the gang since April 2026."
+        )
     }
 
-    # --------------------------------------------------------
-    # AWARD EXPLORER
-    # --------------------------------------------------------
+    for icon, (title, description) in awards.items():
 
-    st.header("🎖️ Award Ceremony")
+        st.subheader(
+            f"{icon} {title}"
+        )
 
-    selected_award = st.selectbox(
-        "Choose an award to reveal",
-        list(awards.keys())
-    )
+        st.write(
+            description
+        )
 
-    award = awards[selected_award]
-
-    st.divider()
-
-    # --------------------------------------------------------
-    # AWARD REVEAL
-    # --------------------------------------------------------
-
-    st.subheader(
-        f"{award['emoji']} {selected_award}"
-    )
-
-    st.success(
-        "🏆 Award officially presented to "
-        "**Shubhangi aka Bahu**!"
-    )
-
-    st.write(
-        f"**Why?** {award['reason']}"
-    )
-
-    st.divider()
-
-    # --------------------------------------------------------
-    # FINAL AWARD
-    # --------------------------------------------------------
-
-    st.header("🎉 And the most important award...")
-
-    st.info(
-        """
-        🏆 **THE OFFICIAL TRIO MEMBER AWARD**
-
-        Presented to:
-
-        **Shubhangi aka Bahu** 🌸
-
-        For becoming an important part of our trio
-        and for all the memories we've collected
-        since April 2026. 🫂
-        """
-    )
-
-    st.balloons()
+        st.divider()
 
 
 # ============================================================
@@ -785,19 +714,25 @@ elif page == "🏆 Bahu Awards":
 
 elif page == "🧠 Bahu Quiz":
 
-    st.title("🧠 How Well Do I Know Bahu?")
+    st.title("🧠 How Well Do You Know Bahu?")
+
+    st.subheader(
+        "The Official Unofficial Bahu Knowledge Test 😂"
+    )
 
     st.write(
-        "The official unofficial Bahu knowledge test."
+        "Let's see how well you know Shubhangi aka Bahu."
     )
 
     st.divider()
-# ============================================================
-# QUIZ QUESTIONS
-# ============================================================
-st.header("📝 The Quiz")
 
-q1 = st.radio(
+    # --------------------------------------------------------
+    # QUIZ QUESTIONS
+    # --------------------------------------------------------
+
+    st.header("📝 The Quiz")
+
+    q1 = st.radio(
         "1️⃣ When is Bahu's birthday?",
         [
             "20 September",
@@ -807,40 +742,41 @@ q1 = st.radio(
         ],
         key="q1"
     )
-q2 = st.radio(
-        "2️⃣ What is the favorite food of bahu?",
+
+    q2 = st.radio(
+        "2️⃣ What is Bahu's favorite food?",
         [
-            "CheeseCake",
+            "Cheesecake",
+            "RedSaucePasta",
             "Maggi",
-            "MatarPaneer",
-            "RedSaucePasta"
+            "Pizza"
         ],
         key="q2"
     )
 
-q3 = st.radio(
-        "3️⃣ What is the favorite song of bahu?",
+    q3 = st.radio(
+        "3️⃣ What is Bahu's favorite flower?",
         [
-            "Barsaat",
-            "Aaj din chadheya",
-            "Apna bana le",
-            "Kesariya"
+            "Rose",
+            "Mariegold",
+            "Lily",
+            "Lotus"
         ],
         key="q3"
     )
 
-q4 = st.radio(
-        "4️⃣ What is the favorite flower of bahu?",
+    q4 = st.radio(
+        "4️⃣ what is Bahu's favorite song?",
         [
-            "Rose",
-            "Sunflower",
-            "Mariegold",
-            "Lily"
+            "Aaj din chadheya",
+            "Apna bana le",
+            "Kesariya",
+            "Tum se hi"
         ],
         key="q4"
     )
 
-q5 = st.radio(
+    q5 = st.radio(
         "5️⃣ What is Shubhangi's project codename?",
         [
             "Boss",
@@ -851,46 +787,48 @@ q5 = st.radio(
         key="q5"
     )
 
-st.divider()
-# ============================================================
-# SUBMIT QUIZ
-# ============================================================
-if st.button(
+    st.divider()
+
+    # --------------------------------------------------------
+    # SUBMIT QUIZ
+    # --------------------------------------------------------
+
+    if st.button(
         "🎯 Submit Quiz",
         use_container_width=True
     ):
 
         score = 0
 
-        # Correct answers
-
         if q1 == "26 September":
             score += 1
 
-        if q2 == "CheeseCake":
+        if q2 == "Cheesecake":
             score += 1
 
-        if q3 == "Aaj din chadheya":
+        if q3 == "Lily":
             score += 1
 
-        if q4 == "Lily":
+        if q4 == "Aaj din chadheya":
             score += 1
 
         if q5 == "Bahu":
             score += 1
 
         st.divider()
-# ============================================================
-# RESULT
-#=============================================================
-st.header("🏆 Your Result")
 
-st.metric(
+        # ----------------------------------------------------
+        # RESULT
+        # ----------------------------------------------------
+
+        st.header("🏆 Your Result")
+
+        st.metric(
             "Your Score",
             f"{score} / 5"
         )
 
-if score == 5:
+        if score == 5:
 
             st.balloons()
 
@@ -898,11 +836,13 @@ if score == 5:
                 """
                 🏆 PERFECT SCORE!
 
-                Okay, if all the answer i filled are correct. Then i know about bahu 😂.
+                Okay, if all the answer i marked are correct then I officially know Bahu very well. 😂
+
+                
                 """
             )
 
-elif score >= 3:
+        elif score >= 3:
 
             st.success(
                 f"""
@@ -910,34 +850,38 @@ elif score >= 3:
 
                 You scored {score}/5.
 
-                if my few answer are correct. then i know few about bahu. 🤏 
+                I know Bahu few 🤏. 
                 """
             )
-elif score >= 1:
+
+        elif score >= 1:
 
             st.warning(
                 f"""
                 😂 You scored {score}/5.
 
-                I need to do revision of the Bahu database.
+                I need to do revision of the Bahu database
+                may be required.
                 """
             )
 
-else:
+        else:
 
             st.error(
                 """
                 😭 0/5!
 
-                I seriously have zero knowledge about bahu.😭
+                I didn't know anything about bahu.
+        
                 """
             )
 
-st.divider()
+        st.divider()
 
-st.caption(
+        st.caption(
             "Quiz officially certified by absolutely nobody. 😂"
         )
+
 
 # ============================================================
 # BIRTHDAY MACHINE
