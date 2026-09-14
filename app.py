@@ -77,7 +77,7 @@ page = st.sidebar.radio(
         "🏠 Home",
         "🌸 Her World",
         "📸 The Trio",
-        "🏆 The Awards",
+        "🏆 DEE Awards",
         "🧠 The Quiz",
         "🔮 Birthday Machine",
         "💌 Final Message"
@@ -732,7 +732,7 @@ st.balloons()
 # BAHU QUIZ
 # ============================================================
 
-elif page == "🧠 Bahu Quiz":
+elif page == "🧠 The Quiz":
 
     st.title("🧠 How Well Do You Know Bahu?")
 
