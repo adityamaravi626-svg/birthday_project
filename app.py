@@ -795,7 +795,7 @@ elif page == "🧠 Bahu Quiz":
 # ============================================================
 # QUIZ QUESTIONS
 # ============================================================
- st.header("📝 The Quiz")
+st.header("📝 The Quiz")
 
     q1 = st.radio(
         "1️⃣ When is Bahu's birthday?",
