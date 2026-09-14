@@ -703,29 +703,29 @@ elif page == "🏆 DEE Awards":
     
 st.header("🎖️ Award Ceremony")
 
-    selected_award = st.selectbox(
+selected_award = st.selectbox(
         "Choose an award to reveal",
         list(awards.keys())
     )
 
-    award = awards[selected_award]
+award = awards[selected_award]
 
-    st.divider()
+st.divider()
 
 st.subheader(
         f"{award['emoji']} {selected_award}"
     )
 
-    st.success(
+st.success(
         f"🏆 Award officially presented to "
         f"**Shubhangi aka Bahu**!"
     )
 
-    st.write(
+st.write(
         f"**Why?** {award['reason']}"
     )
 
-    st.divider()
+st.divider()
 
     for icon, (title, description) in awards.items():
 
