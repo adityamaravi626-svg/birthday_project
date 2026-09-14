@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 from datetime import date
@@ -7,7 +6,6 @@ from datetime import date
 # ============================================================
 # OPERATION BAHU
 # Birthday Edition
-# Phase 3: Bahu's World
 # ============================================================
 
 
@@ -47,14 +45,13 @@ except FileNotFoundError:
             "Classical Dance",
             "Painting",
             "Flowers",
-            "Food",
-            "Music"
+            "Food"
         ],
         "Interest_Score": [
             90,
             85,
             95,
-            100, 88
+            100
         ]
     })
 
@@ -75,10 +72,10 @@ page = st.sidebar.radio(
     "Navigate",
     [
         "🏠 Home",
-        "🌸 Her World",
+        "🌸 Bahu's World",
         "📸 The Trio",
-        "🏆 DEE Awards",
-        "🧠 The Quiz",
+        "🏆 Bahu Awards",
+        "🧠 Bahu Quiz",
         "🔮 Birthday Machine",
         "💌 Final Message"
     ]
@@ -190,34 +187,40 @@ if page == "🏠 Home":
 
     with col1:
 
-        st.write("🌸 **The Mini World**")
+        st.write("🌸 **Bahu's World**")
+
         st.write(
             "A little look at the things you loves."
         )
 
         st.write("📸 **The Trio**")
+
         st.write(
             "A collection of memories from our trio."
         )
 
-        st.write("🏆 **DEE Awards**")
+        st.write("🏆 **Bahu Awards**")
+
         st.write(
             "Some very official and definitely legitimate awards."
         )
 
     with col2:
 
-        st.write("🧠 **The Known Quiz**")
+        st.write("🧠 **Bahu Quiz**")
+
         st.write(
             "Let's see how well I know you."
         )
 
         st.write("🔮 **Birthday Machine**")
+
         st.write(
             "A completely scientific birthday prediction. 😂"
         )
 
         st.write("💌 **Final Message**")
+
         st.write(
             "A birthday message from Me."
         )
@@ -227,9 +230,9 @@ if page == "🏠 Home":
 # BAHU'S WORLD
 # ============================================================
 
-elif page == "🌸 Mini World":
+elif page == "🌸 Bahu's World":
 
-    st.title("🌸 Her Mini World")
+    st.title("🌸 Bahu's World")
 
     st.subheader(
         "A little world built around the things she loves."
@@ -241,7 +244,6 @@ elif page == "🌸 Mini World":
     )
 
     st.divider()
-
 
     # --------------------------------------------------------
     # TOP INTEREST METRICS
@@ -279,9 +281,7 @@ elif page == "🌸 Mini World":
             "100%"
         )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # INTEREST EXPLORER
@@ -299,55 +299,68 @@ elif page == "🌸 Mini World":
         ]
     )
 
-
     interest_information = {
 
         "💃 Classical Dance": {
+
             "title": "💃 Classical Dance",
+
             "score": 90,
+
             "message": (
                 "Grace, rhythm and expression. "
                 "This is where art meets movement."
             ),
+
             "emoji": "💃"
         },
 
         "🎨 Painting": {
+
             "title": "🎨 Painting",
+
             "score": 85,
+
             "message": (
                 "A creative side that turns a blank "
                 "canvas into something personal."
             ),
+
             "emoji": "🎨"
         },
 
         "🌸 Flowers": {
+
             "title": "🌸 Flowers",
+
             "score": 95,
+
             "message": (
                 "Some things simply make a day "
                 "look a little more beautiful."
             ),
+
             "emoji": "🌸"
         },
 
         "🍕 Food": {
+
             "title": "🍕 Food",
+
             "score": 100,
+
             "message": (
                 "Important research finding: "
                 "Bahu is a certified foodie. 😂"
             ),
+
             "emoji": "🍕"
         }
     }
 
-
     selected = interest_information[
         selected_interest
     ]
-
 
     st.subheader(
         selected["title"]
@@ -365,9 +378,7 @@ elif page == "🌸 Mini World":
         f"Fun project score: {selected['score']}%"
     )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # INTEREST DATA
@@ -381,7 +392,6 @@ elif page == "🌸 Mini World":
         hide_index=True
     )
 
-
     st.subheader(
         "📈 Interest Comparison"
     )
@@ -394,9 +404,7 @@ elif page == "🌸 Mini World":
         chart_data
     )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # STRONGEST INTEREST
@@ -413,9 +421,7 @@ elif page == "🌸 Mini World":
         f"**{strongest['Interest_Score']}%**."
     )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # BAHU FORMULA
@@ -433,13 +439,14 @@ elif page == "🌸 Mini World":
     with formula_col1:
 
         st.write("💃 Dance")
+
         st.write("🎨 Painting")
 
     with formula_col2:
 
         st.write("🌸 Flowers")
-        st.write("🍕 Food")
 
+        st.write("🍕 Food")
 
     st.info(
         "🌸 + 🎨 + 💃 + 🍕 = **Bahu**"
@@ -453,7 +460,7 @@ elif page == "🌸 Mini World":
 # ============================================================
 # THE TRIO
 # ============================================================
- 
+
 elif page == "📸 The Trio":
 
     st.title("📸 The Trio")
@@ -461,6 +468,7 @@ elif page == "📸 The Trio":
     st.subheader(
         "Three people. One Friendship. Beginning of Memories. 🫂"
     )
+
     st.write(
         "A little collection of moments from "
         "April 2026 onwards."
@@ -476,7 +484,7 @@ elif page == "📸 The Trio":
 
         st.metric(
             "👨‍💻",
-            "aditya aka Eddie"
+            "Aditya aka Eddie"
         )
 
     with col2:
@@ -507,7 +515,6 @@ elif page == "📸 The Trio":
 
     st.divider()
 
-
     # --------------------------------------------------------
     # PHOTO GALLERY
     # --------------------------------------------------------
@@ -518,13 +525,11 @@ elif page == "📸 The Trio":
         "A few moments from the trio."
     )
 
-
     import os
 
     image_folder = "Memories"
 
     image_files = []
-
 
     if os.path.exists(image_folder):
 
@@ -543,12 +548,10 @@ elif page == "📸 The Trio":
                     )
                 )
 
-
     if image_files:
 
-        # Display photos in groups of three
+        image_files = image_files[:9]
 
-        image_files=image_files[:9]
         for i in range(
             0,
             len(image_files),
@@ -559,10 +562,11 @@ elif page == "📸 The Trio":
 
             columns = st.columns(3)
 
-            for column, image_path in zip(
-                columns,
-                row
+            for offset, (column, image_path) in enumerate(
+                zip(columns, row)
             ):
+
+                photo_number = i + offset + 1
 
                 with column:
 
@@ -571,17 +575,10 @@ elif page == "📸 The Trio":
                         use_container_width=True
                     )
 
-                    filename = os.path.basename(
-                        image_path
-                    )
-                    photo_number = (
-                    image_files.index(image_path) + 1
-                )
-
                     st.caption(
-                    f"📸 Memory #{photo_number}"
-                )
-                  
+                        f"📸 Memory #{photo_number}"
+                    )
+
     else:
 
         st.warning(
@@ -590,16 +587,13 @@ elif page == "📸 The Trio":
 
             Add your trio photos inside:
 
-            `images/`
+            `Memories/`
 
             Then refresh the app.
             """
         )
 
-
     st.divider()
-
-
 
     # --------------------------------------------------------
     # TRIO STATISTICS
@@ -630,9 +624,7 @@ elif page == "📸 The Trio":
             "26 September"
         )
 
-
     st.divider()
-
 
     # --------------------------------------------------------
     # MEMORY MESSAGE
@@ -654,15 +646,17 @@ elif page == "📸 The Trio":
         """
     )
 
+
 # ============================================================
 # BAHU AWARDS
 # ============================================================
 
-elif page == "🏆 DEE Awards":
+elif page == "🏆 Bahu Awards":
 
-    st.title("🏆 DEE Awards")
+    st.title("🏆 The Bahu Awards")
+
     st.subheader(
-        "The most prestigious unofficial awards of the year.😂" 
+        "The most prestigious unofficial awards of the year. 😂"
     )
 
     st.write(
@@ -673,66 +667,123 @@ elif page == "🏆 DEE Awards":
 
     st.divider()
 
+    # --------------------------------------------------------
+    # AWARDS
+    # --------------------------------------------------------
+
     awards = {
-        "🌸": (
-            "Flower Enthusiast Award",
-            "For having a special appreciation for flowers."
-        ),
 
-        "🎨": (
-            "Creative Artist Award",
-            "For your love of painting and creativity."
-        ),
+        "🌸 Flower Enthusiast Award": {
 
-        "💃": (
-            "Classical Dance Award",
-            "For possessing significantly more grace than the rest of us."
-        ),
+            "emoji": "🌸",
 
-        "🍕": (
-            "Professional Foodie Award",
-            "For taking food very seriously."
-            "A completely deserved award. 😂"
-        ),
+            "reason": (
+                "For having a special appreciation "
+                "for flowers."
+            )
+        },
 
-        "🫂": (
-            "Official Trio Member Award",
-            "For becoming part of the gang since April 2026."
-        )
+        "🎨 Creative Artist Award": {
+
+            "emoji": "🎨",
+
+            "reason": (
+                "For her love of painting and creativity."
+            )
+        },
+
+        "💃 Classical Dance Award": {
+
+            "emoji": "💃",
+
+            "reason": (
+                "For bringing grace, rhythm and "
+                "expression through classical dance."
+            )
+        },
+
+        "🍕 Professional Foodie Award": {
+
+            "emoji": "🍕",
+
+            "reason": (
+                "For taking food very seriously. "
+                "A completely deserved award. 😂"
+            )
+        },
+
+        "🫂 Official Trio Member Award": {
+
+            "emoji": "🫂",
+
+            "reason": (
+                "For becoming part of the gang since April 2026."
+            )
+        }
     }
-    
-st.header("🎖️ Award Ceremony")
 
-selected_award = st.selectbox(
+    # --------------------------------------------------------
+    # AWARD EXPLORER
+    # --------------------------------------------------------
+
+    st.header("🎖️ Award Ceremony")
+
+    selected_award = st.selectbox(
         "Choose an award to reveal",
         list(awards.keys())
     )
 
-award = awards[selected_award]
+    award = awards[selected_award]
 
-st.divider()
+    st.divider()
 
-st.subheader(
+    # --------------------------------------------------------
+    # AWARD REVEAL
+    # --------------------------------------------------------
+
+    st.subheader(
         f"{award['emoji']} {selected_award}"
     )
 
-st.success(
-        f"🏆 Award officially presented to "
-        f"**Shubhangi aka Bahu**!"
+    st.success(
+        "🏆 Award officially presented to "
+        "**Shubhangi aka Bahu**!"
     )
 
-st.write(
+    st.write(
         f"**Why?** {award['reason']}"
     )
 
-st.divider()
-st.balloons()
+    st.divider()
+
+    # --------------------------------------------------------
+    # FINAL AWARD
+    # --------------------------------------------------------
+
+    st.header("🎉 And the most important award...")
+
+    st.info(
+        """
+        🏆 **THE OFFICIAL TRIO MEMBER AWARD**
+
+        Presented to:
+
+        **Shubhangi aka Bahu** 🌸
+
+        For becoming an important part of our trio
+        and for all the memories we've collected
+        since April 2026. 🫂
+        """
+    )
+
+    st.balloons()
+
 
 # ============================================================
 # BAHU QUIZ
 # ============================================================
 
-elif page == "🧠 The Quiz":
+elif page == "🧠 Bahu Quiz":
 
     st.title("🧠 How Well Do You Know Bahu?")
 
