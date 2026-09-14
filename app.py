@@ -652,60 +652,128 @@ elif page == "📸 The Trio":
         and the ones still waiting for us. 🫂
         """
     )
-
 # ============================================================
 # BAHU AWARDS
+# PHASE 5
 # ============================================================
 
 elif page == "🏆 Bahu Awards":
 
     st.title("🏆 The Bahu Awards")
 
+    st.subheader(
+        "The most prestigious unofficial awards of the year. 😂"
+    )
+
     st.write(
-        "Some highly prestigious awards "
-        "that definitely required no committee approval."
+        "No committee was involved. "
+        "No nominations were required. "
+        "The results are completely final. 🏆"
     )
 
     st.divider()
 
+    # --------------------------------------------------------
+    # AWARDS
+    # --------------------------------------------------------
+
     awards = {
-        "🌸": (
-            "Flower Enthusiast Award",
-            "For having a special appreciation for flowers."
-        ),
 
-        "🎨": (
-            "Creative Artist Award",
-            "For the painting skills."
-        ),
+        "🌸 Flower Enthusiast Award": {
+            "emoji": "🌸",
+            "reason": (
+                "For having a special appreciation "
+                "for flowers."
+            )
+        },
 
-        "💃": (
-            "Classical Dance Award",
-            "For possessing significantly more grace than the rest of us."
-        ),
+        "🎨 Creative Artist Award": {
+            "emoji": "🎨",
+            "reason": (
+                "For her love of painting and creativity."
+            )
+        },
 
-        "🍕": (
-            "Professional Foodie Award",
-            "For taking food very seriously."
-        ),
+        "💃 Classical Dance Award": {
+            "emoji": "💃",
+            "reason": (
+                "For bringing grace, rhythm and "
+                "expression through classical dance."
+            )
+        },
 
-        "🫂": (
-            "Official Trio Member Award",
-            "For becoming part of the gang since April 2026."
-        )
+        "🍕 Professional Foodie Award": {
+            "emoji": "🍕",
+            "reason": (
+                "For taking food very seriously. "
+                "A completely deserved award. 😂"
+            )
+        },
+
+        "🫂 Official Trio Member Award": {
+            "emoji": "🫂",
+            "reason": (
+                "For becoming part of the gang since April 2026."
+            )
+        }
     }
 
-    for icon, (title, description) in awards.items():
+    # --------------------------------------------------------
+    # AWARD EXPLORER
+    # --------------------------------------------------------
 
-        st.subheader(
-            f"{icon} {title}"
-        )
+    st.header("🎖️ Award Ceremony")
 
-        st.write(
-            description
-        )
+    selected_award = st.selectbox(
+        "Choose an award to reveal",
+        list(awards.keys())
+    )
 
-        st.divider()
+    award = awards[selected_award]
+
+    st.divider()
+
+    # --------------------------------------------------------
+    # AWARD REVEAL
+    # --------------------------------------------------------
+
+    st.subheader(
+        f"{award['emoji']} {selected_award}"
+    )
+
+    st.success(
+        "🏆 Award officially presented to "
+        "**Shubhangi aka Bahu**!"
+    )
+
+    st.write(
+        f"**Why?** {award['reason']}"
+    )
+
+    st.divider()
+
+    # --------------------------------------------------------
+    # FINAL AWARD
+    # --------------------------------------------------------
+
+    st.header("🎉 And the most important award...")
+
+    st.info(
+        """
+        🏆 **THE OFFICIAL TRIO MEMBER AWARD**
+
+        Presented to:
+
+        **Shubhangi aka Bahu** 🌸
+
+        For becoming an important part of our trio
+        and for all the memories we've collected
+        since April 2026. 🫂
+        """
+    )
+
+    st.balloons()
+
 
 
 # ============================================================
