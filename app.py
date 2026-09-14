@@ -890,7 +890,7 @@ st.metric(
             f"{score} / 5"
         )
 
-        if score == 5:
+if score == 5:
 
             st.balloons()
 
@@ -902,7 +902,7 @@ st.metric(
                 """
             )
 
-        elif score >= 3:
+elif score >= 3:
 
             st.success(
                 f"""
@@ -913,8 +913,7 @@ st.metric(
                 if my few answer are correct. then i know few about bahu. 🤏 
                 """
             )
-
-        elif score >= 1:
+elif score >= 1:
 
             st.warning(
                 f"""
@@ -924,7 +923,7 @@ st.metric(
                 """
             )
 
-        else:
+else:
 
             st.error(
                 """
@@ -934,9 +933,9 @@ st.metric(
                 """
             )
 
-        st.divider()
+st.divider()
 
-        st.caption(
+st.caption(
             "Quiz officially certified by absolutely nobody. 😂"
         )
 
