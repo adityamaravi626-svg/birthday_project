@@ -785,18 +785,161 @@ elif page == "🏆 Bahu Awards":
 
 elif page == "🧠 Bahu Quiz":
 
-    st.title("🧠 How Well Do You Know Bahu?")
+    st.title("🧠 How Well Do I Know Bahu?")
 
     st.write(
         "The official unofficial Bahu knowledge test."
     )
 
     st.divider()
+# ============================================================
+# QUIZ QUESTIONS
+# ============================================================
+ st.header("📝 The Quiz")
 
-    st.info(
-        "🚧 Quiz coming in Phase 6."
+    q1 = st.radio(
+        "1️⃣ When is Bahu's birthday?",
+        [
+            "20 September",
+            "24 September",
+            "26 September",
+            "30 September"
+        ],
+        key="q1"
     )
 
+    q2 = st.radio(
+        "2️⃣ What is the favorite food of bahu?",
+        [
+            "CheeseCake",
+            "Maggi",
+            "MatarPaneer",
+            "RedSaucePasta"
+        ],
+        key="q2"
+    )
+
+    q3 = st.radio(
+        "3️⃣ What is the favorite song of bahu?",
+        [
+            "Barsaat",
+            "Aaj din chadheya",
+            "Apna bana le",
+            "Kesariya"
+        ],
+        key="q3"
+    )
+
+    q4 = st.radio(
+        "4️⃣ What is the favorite flower of bahu?",
+        [
+            "Rose",
+            "Sunflower",
+            "Mariegold",
+            "Lily"
+        ],
+        key="q4"
+    )
+
+    q5 = st.radio(
+        "5️⃣ What is Shubhangi's project codename?",
+        [
+            "Boss",
+            "Bahu",
+            "Captain",
+            "Queen"
+        ],
+        key="q5"
+    )
+
+    st.divider()
+# ============================================================
+# SUBMIT QUIZ
+# ============================================================
+if st.button(
+        "🎯 Submit Quiz",
+        use_container_width=True
+    ):
+
+        score = 0
+
+        # Correct answers
+
+        if q1 == "26 September":
+            score += 1
+
+        if q2 == "CheeseCake":
+            score += 1
+
+        if q3 == "Aaj din chadheya":
+            score += 1
+
+        if q4 == "Lily":
+            score += 1
+
+        if q5 == "Bahu":
+            score += 1
+
+        st.divider()
+# ============================================================
+# RESULT
+#=============================================================
+st.header("🏆 Your Result")
+
+        st.metric(
+            "Your Score",
+            f"{score} / 5"
+        )
+
+        if score == 5:
+
+            st.balloons()
+
+            st.success(
+                """
+                🏆 PERFECT SCORE!
+
+                Okay, if all the answer i filled are correct. Then i know about bahu 😂.
+                """
+            )
+
+        elif score >= 3:
+
+            st.success(
+                f"""
+                🎉 Good job!
+
+                You scored {score}/5.
+
+                if my few answer are correct. then i know few about bahu. 🤏 
+                """
+            )
+
+        elif score >= 1:
+
+            st.warning(
+                f"""
+                😂 You scored {score}/5.
+
+                I need to do revision of the Bahu database.
+                """
+            )
+
+        else:
+
+            st.error(
+                """
+                😭 0/5!
+
+                I seriously have zero knowledge about bahu.😭
+                """
+            )
+
+        st.divider()
+
+        st.caption(
+            "Quiz officially certified by absolutely nobody. 😂"
+        )
 
 # ============================================================
 # BIRTHDAY MACHINE
