@@ -701,7 +701,7 @@ elif page == "🏆 DEE Awards":
         )
     }
     
-  st.header("🎖️ Award Ceremony")
+st.header("🎖️ Award Ceremony")
 
     selected_award = st.selectbox(
         "Choose an award to reveal",
