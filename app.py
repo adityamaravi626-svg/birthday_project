@@ -797,7 +797,7 @@ elif page == "🧠 Bahu Quiz":
 # ============================================================
 st.header("📝 The Quiz")
 
-    q1 = st.radio(
+q1 = st.radio(
         "1️⃣ When is Bahu's birthday?",
         [
             "20 September",
@@ -807,8 +807,7 @@ st.header("📝 The Quiz")
         ],
         key="q1"
     )
-
-    q2 = st.radio(
+q2 = st.radio(
         "2️⃣ What is the favorite food of bahu?",
         [
             "CheeseCake",
@@ -819,7 +818,7 @@ st.header("📝 The Quiz")
         key="q2"
     )
 
-    q3 = st.radio(
+q3 = st.radio(
         "3️⃣ What is the favorite song of bahu?",
         [
             "Barsaat",
@@ -830,7 +829,7 @@ st.header("📝 The Quiz")
         key="q3"
     )
 
-    q4 = st.radio(
+q4 = st.radio(
         "4️⃣ What is the favorite flower of bahu?",
         [
             "Rose",
@@ -841,7 +840,7 @@ st.header("📝 The Quiz")
         key="q4"
     )
 
-    q5 = st.radio(
+q5 = st.radio(
         "5️⃣ What is Shubhangi's project codename?",
         [
             "Boss",
