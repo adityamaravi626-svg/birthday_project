@@ -75,10 +75,10 @@ page = st.sidebar.radio(
     "Navigate",
     [
         "🏠 Home",
-        "🌸 Bahu's World",
+        "🌸 Her World",
         "📸 The Trio",
-        "🏆 Bahu Awards",
-        "🧠 Bahu Quiz",
+        "🏆 The Awards",
+        "🧠 The Quiz",
         "🔮 Birthday Machine",
         "💌 Final Message"
     ]
@@ -190,9 +190,9 @@ if page == "🏠 Home":
 
     with col1:
 
-        st.write("🌸 **Bahu's World**")
+        st.write("🌸 **The Mini World**")
         st.write(
-            "A little look at the things she loves."
+            "A little look at the things you loves."
         )
 
         st.write("📸 **The Trio**")
@@ -200,16 +200,16 @@ if page == "🏠 Home":
             "A collection of memories from our trio."
         )
 
-        st.write("🏆 **Bahu Awards**")
+        st.write("🏆 **DEE Awards**")
         st.write(
             "Some very official and definitely legitimate awards."
         )
 
     with col2:
 
-        st.write("🧠 **Bahu Quiz**")
+        st.write("🧠 **The Known Quiz**")
         st.write(
-            "Let's see how well I know her."
+            "Let's see how well I know you."
         )
 
         st.write("🔮 **Birthday Machine**")
@@ -227,9 +227,9 @@ if page == "🏠 Home":
 # BAHU'S WORLD
 # ============================================================
 
-elif page == "🌸 Bahu's World":
+elif page == "🌸 Mini World":
 
-    st.title("🌸 Bahu's World")
+    st.title("🌸 Her Mini World")
 
     st.subheader(
         "A little world built around the things she loves."
@@ -658,13 +658,17 @@ elif page == "📸 The Trio":
 # BAHU AWARDS
 # ============================================================
 
-elif page == "🏆 Bahu Awards":
+elif page == "🏆 DEE Awards":
 
-    st.title("🏆 The Bahu Awards")
+    st.title("🏆 DEE Awards")
+    st.subheader(
+        "The most prestigious unofficial awards of the year.😂" 
+    )
 
     st.write(
-        "Some highly prestigious awards "
-        "that definitely required no committee approval."
+        "No committee was involved. "
+        "No nominations were required. "
+        "The results are completely final. 🏆"
     )
 
     st.divider()
@@ -677,7 +681,7 @@ elif page == "🏆 Bahu Awards":
 
         "🎨": (
             "Creative Artist Award",
-            "For the painting skills."
+            "For your love of painting and creativity."
         ),
 
         "💃": (
@@ -688,6 +692,7 @@ elif page == "🏆 Bahu Awards":
         "🍕": (
             "Professional Foodie Award",
             "For taking food very seriously."
+            "A completely deserved award. 😂"
         ),
 
         "🫂": (
@@ -695,6 +700,32 @@ elif page == "🏆 Bahu Awards":
             "For becoming part of the gang since April 2026."
         )
     }
+    
+  st.header("🎖️ Award Ceremony")
+
+    selected_award = st.selectbox(
+        "Choose an award to reveal",
+        list(awards.keys())
+    )
+
+    award = awards[selected_award]
+
+    st.divider()
+
+st.subheader(
+        f"{award['emoji']} {selected_award}"
+    )
+
+    st.success(
+        f"🏆 Award officially presented to "
+        f"**Shubhangi aka Bahu**!"
+    )
+
+    st.write(
+        f"**Why?** {award['reason']}"
+    )
+
+    st.divider()
 
     for icon, (title, description) in awards.items():
 
@@ -707,7 +738,7 @@ elif page == "🏆 Bahu Awards":
         )
 
         st.divider()
-
+ st.balloons()
 
 # ============================================================
 # BAHU QUIZ
