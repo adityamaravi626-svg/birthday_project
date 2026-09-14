@@ -727,9 +727,9 @@ st.write(
 
 st.divider()
 
-    for icon, (title, description) in awards.items():
+for icon, (title, description) in awards.items():
 
-        st.subheader(
+   st.subheader(
             f"{icon} {title}"
         )
 
@@ -737,7 +737,7 @@ st.divider()
             description
         )
 
-        st.divider()
+ st.divider()
  st.balloons()
 
 # ============================================================
